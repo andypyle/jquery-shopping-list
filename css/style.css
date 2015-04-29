@@ -1,3 +1,16 @@
+.shopping-list {
+
+}
+
+.shopping-list li {
+	padding: 0 .5em;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.shopping-list li + li {
+	border-top: 1px dotted #DDD;
+}
+
 .done {
 	color: #CCC;
 	text-decoration: line-through;
