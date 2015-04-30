@@ -1,19 +1,47 @@
 @media only screen and (max-width: 600px){
-	.container {
+	.container,
+	section {
 		width: 100%;
-	}
+		padding: 0;
+		overflow: hidden;
+	}	
 	h2.pageheader {
 		font-size: 3em;
 	}
+
+	.shopping-list li p {
+		left: 7em;
+	}
+
+	.add-item {
+		padding: 1.15em;
+		line-height: .5em;
+	}
+}
+
+.add-item {
+	padding: 1em;
+	line-height: .45em;
+}
+
+.shopping-list {
+	display: table;
+	border-collapse: collapse;
 }
 
 .shopping-list li {
-	padding: 0 .5em;
-	margin-bottom: 0;
-	margin-top: 0;
+	display: table-row;
+	padding: 0 !important;
+	margin: 0 !important;
 }
+
 .shopping-list li + li {
 	border-top: 1px dotted #DDD;
+}
+
+.shopping-list li p {
+	padding: .75em 0;
+	margin: 0;
 }
 
 .done {
