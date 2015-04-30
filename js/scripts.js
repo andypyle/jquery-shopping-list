@@ -20,23 +20,39 @@ $(document).ready(function(){
 
 		var newItem = $.parseHTML(toAdd);
 		$(newItem)
+			.addClass('dismissable')
 			.hide()
 			.appendTo(listContainer)
-			.fadeIn()
-			.addClass('dismissable');
+			.fadeIn();
 	}
 	
-
+$('#searchbox input').bind('keypress', function(e) {
+	if(e.keyCode==13){
+		// Enter pressed... do anything here...
+	}
+});
 
 	addBtn.click(function(){
 		var itemText = itemInput.val();
 		if(!itemText.length){
-			Materialize.toast('Please type an item name!', 4000)
+			Materialize.toast('Please type an item name!', 2000, 'red darken-4');
 		} else {
 			addItem(itemText);
 		}
 		
 		itemInput.val('');
+	})
+
+	itemInput.bind('keydown', function(e){
+		var itemText = itemInput.val();
+		if(e.which==13){
+			if(!itemText.length){
+				Materialize.toast('Please type an item name!', 2000, 'red darken-4');
+			} else {
+				addItem(itemText);
+			}		
+		itemInput.val('');
+		}
 	})
 
 	listContainer.on('click', '.btn-check', function(){

@@ -32,14 +32,31 @@ html {
 
 	.shopping-list li p {
 		left: 7em;
-	}
+	}	
+}
 
-	
+h2.pageheader {
+	font-size: 4em;
+	font-weight: 700;
+	text-transform: uppercase;
+	line-height: .75em;
+}
+
+.input-field input[type=text] {
+	font-size: 1.25em;
 }
 
 .add-item {
 	padding: 1em;
 	line-height: .45em;
+}
+
+@media only screen and (min-width : 993px) {
+    #toast-container {
+    	min-width: 8%;
+    	top: 2.75%;
+    	right: 7%; 
+    } 
 }
 
 .shopping-list {
