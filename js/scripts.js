@@ -9,7 +9,7 @@ $(document).ready(function(){
 					"<div class='col s12'>" +
 						"<p class='flow-text'>" +
 						item +
-							"<span class='right'>" +
+							"<span class='right item-btns'>" +
 								"<a href='#!' class='btn-floating btn-flat hide-on-med-and-up btn-show'><i class='cyan-text mdi-navigation-more-horiz'></i></a>" +
 								"<a href='#!' class='btn-floating red lighten-2 hide-on-small-only btn-delete'><i class='mdi-navigation-close'></i></a>" +
 								"<a href='#!' class='btn-floating green lighten-2 hide-on-small-only btn-check'><i class='mdi-navigation-check'></i></a>" +							
@@ -19,15 +19,23 @@ $(document).ready(function(){
 				"</li>";
 
 		var newItem = $.parseHTML(toAdd);
-		$(newItem).hide().appendTo(listContainer).fadeIn();
-		//newItem.fadeIn();
+		$(newItem)
+			.hide()
+			.appendTo(listContainer)
+			.fadeIn()
+			.addClass('dismissable');
 	}
 	
 
 
 	addBtn.click(function(){
 		var itemText = itemInput.val();
-		addItem(itemText);
+		if(!itemText.length){
+			Materialize.toast('Please type an item name!', 4000)
+		} else {
+			addItem(itemText);
+		}
+		
 		itemInput.val('');
 	})
 
@@ -54,72 +62,4 @@ $(document).ready(function(){
 		});
 		
 	})
-	
-
-	/*
-	listContainer
-		.append("<li>")
-			.addClass("row")
-		.append("<div>")
-			.addClass("col s12")
-		.append("<p>")
-			.addClass("flow-text")
-				.append("asdfasdf")
-		.append("<span>")
-			.addClass("right")
-		.append("<a href='#!'>")
-			.addClass("btn-floating btn-flat hide-on-med-and-up")
-				.append("<i>")
-					.addClass("cyan-text mdi-navigation-more-horiz")
-				.append("</li>")
-			.append("</a>")
-		.append("<a href='#!'>")
-			.addClass("btn-floating red lighten-2 hide-on-small-only")
-				.append('<i>')
-					.addClass("mdi-navigation-close")
-				.append("</li>")
-			.append("</a>")
-		.append("<a href='#!'>")
-			.addClass("btn-floating green lighten-2 hide-on-small-only")
-				.append("<i>")
-					.addClass("mdi-navigation-check")
-				.append("</li>")
-			.append("</a>")
-		.append("</span>")
-		.append("</p>")
-		.append("</div>")
-		.append("</li>");
-	*/
-
-
-
-	/*
-	<li class="row">
-		<div class="col s12">
-			<p class="flow-text">Item 1
-				<span class="right">
-					<a href="#!" class="btn-floating btn-flat hide-on-med-and-up"><i class="cyan-text mdi-navigation-more-horiz"></i></a>
-					<a href="#!" class="btn-floating red lighten-2 hide-on-small-only"><i class="mdi-navigation-close"></i></a>
-					<a href="#!" class="btn-floating green lighten-2 hide-on-small-only"><i class="mdi-navigation-check"></i></a>									
-				</span>
-			</p>
-		</div>
-	</li>
-
-			<li class='row'>
-							<div class='col s12'>
-								<p class='flow-text'>Item 4
-									<span class='right'>
-										<a href='#!' class='btn-floating btn-flat hide-on-med-and-up'><i class='cyan-text mdi-navigation-more-horiz'></i></a>
-										<a href='#!' class='btn-floating red lighten-2 hide-on-small-only'><i class='mdi-navigation-close'></i></a>
-										<a href='#!' class='btn-floating green lighten-2 hide-on-small-only'><i class='mdi-navigation-check'></i></a>									
-									</span>
-								</p>
-							</div>
-						</li>
-	*/
-
-
-
-
 })
